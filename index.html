@@ -1,40 +1,91 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جواد اورنگ | خدمات فنی</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جواد اورنگ | خدمات فنی و مهندسی</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="overlay">
-            <h1>جواد اورنگ</h1>
-            <p>خدمات کناف | لوله کشی | برق کاری | نصب کولر گازی</p>
-            <a href="#contact" class="btn">تماس با ما</a>
-        </div>
-    </header>
+  <!-- 🔹 منوی بالا -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="لوگوی سایت">
+      <span>جواد اورنگ</span>
+    </div>
 
-    <section id="services">
-        <h2>خدمات ما</h2>
-        <div class="service-list">
-            <div class="service-item">کناف کاری</div>
-            <div class="service-item">لوله کشی</div>
-            <div class="service-item">برق کاری</div>
-            <div class="service-item">نصب کولر گازی</div>
-        </div>
-    </section>
+    <button class="menu-toggle">☰</button>
 
-    <section id="contact">
-        <h2>تماس با ما</h2>
-        <p>📞 شماره تماس: 09120000000</p>
-        <p>📍 آدرس: تهران، خیابان ایران</p>
-    </section>
+    <ul class="menu">
+      <li><a href="#">خانه</a></li>
+      <li class="dropdown">
+        <a href="#">خدمات ▼</a>
+        <ul class="submenu">
+          <li><a href="#services">لوله‌کشی</a></li>
+          <li><a href="#services">برق‌کاری</a></li>
+          <li><a href="#services">کناف‌کاری</a></li>
+          <li><a href="#services">نصب کولر گازی</a></li>
+        </ul>
+      </li>
+      <li><a href="#cards">کارهای ما</a></li>
+      <li><a href="#">مقالات</a></li>
+      <li><a href="#contact">تماس با ما</a></li>
+    </ul>
 
-    <footer>
-        <p>© 2025 جواد اورنگ. همه حقوق محفوظ است.</p>
-    </footer>
+    <div class="lang-switch">
+      <button onclick="window.location.href='en/index.html'">EN</button>
+    </div>
+  </nav>
+
+  <!-- 🔹 بخش اصلی Header فعلی -->
+  <header>
+    <div class="overlay">
+      <h1>جواد اورنگ</h1>
+      <p>خدمات کناف کاری | لوله کشی ساختمان | برق کاری ساختمان | نصب کولر گازی</p>
+      <a href="#contact" class="btn">تماس با ما</a>
+    </div>
+  </header>
+
+  <!-- 🔹 ادامه صفحه -->
+  <section id="services">
+    <h2>خدمات ما</h2>
+    <div class="service-list">
+      <div class="service-item">کناف کاری</div>
+      <div class="service-item">لوله کشی</div>
+      <div class="service-item">برق کاری</div>
+      <div class="service-item">نصب کولر گازی</div>
+    </div>
+  </section>
+
+  <section id="cards">
+    <div class="card">
+      <img src="images/knauf.jpg" alt="کناف کاری">
+      <div class="card-text">کناف کاری</div>
+    </div>
+    <div class="card">
+      <img src="images/plumbing.jpg" alt="لوله کشی">
+      <div class="card-text">لوله کشی</div>
+    </div>
+    <div class="card">
+      <img src="images/electric.jpg" alt="برق کاری">
+      <div class="card-text">برق کاری</div>
+    </div>
+    <div class="card">
+      <img src="images/ac.jpg" alt="نصب کولر گازی">
+      <div class="card-text">کولر گازی</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>تماس با ما</h2>
+    <p>📞 شماره تماس: 09120000000</p>
+    <p>📍 آدرس: تهران، خیابان ایران</p>
+  </section>
+
+  <footer>
+    <p>© 2025 جواد اورنگ. همه حقوق محفوظ است.</p>
+  </footer>
 </body>
 </html>
