@@ -9,42 +9,44 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <nav class="navbar">
-  <div class="logo">
-    <img src="./images/Logo.png" alt="لوگوی سایت">
-    <span>جواد اورنگ</span>
+ <nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <a href="./">
+        <img src="./images/Logo.png" alt="لوگو جواد اورنگ">
+      </a>
+      <span class="brand">جواد اورنگ</span>
+    </div>
+
+    <button class="menu-toggle" aria-label="باز کردن منو">☰</button>
+
+    <ul class="menu">
+      <li><a href="#">خانه</a></li>
+      <li class="dropdown"><a href="#">خدمات</a>
+        <ul class="submenu">
+          <li><a href="#services">لوله‌کشی</a></li>
+          <li><a href="#services">برق‌کاری</a></li>
+          <li><a href="#services">کناف‌کاری</a></li>
+          <li><a href="#services">نصب کولر گازی</a></li>
+        </ul>
+      </li>
+      <li><a href="#cards">کارهای ما</a></li>
+      <li><a href="#contact">تماس</a></li>
+      <li class="lang-switch"><button onclick="window.location.href='en/index.html'">EN</button></li>
+    </ul>
   </div>
-
-  <button class="menu-toggle">☰</button>
-
-  <ul class="menu">
-    <li><a href="#">خانه</a></li>
-    <li class="dropdown">
-      <a href="#">خدمات ▼</a>
-      <ul class="submenu">
-        <li><a href="#services">لوله‌کشی</a></li>
-        <li><a href="#services">برق‌کاری</a></li>
-        <li><a href="#services">کناف‌کاری</a></li>
-        <li><a href="#services">نصب کولر گازی</a></li>
-      </ul>
-    </li>
-    <li><a href="#cards">کارهای ما</a></li>
-    <li><a href="#">مقالات</a></li>
-    <li><a href="#contact">تماس با ما</a></li>
-    <li class="lang-switch">
-      <button onclick="window.location.href='en/index.html'">EN</button>
-    </li>
-  </ul>
 </nav>
 
-  <!-- 🔹 بخش اصلی Header فعلی -->
-  <header>
-    <div class="overlay">
-      <h1>جواد اورنگ</h1>
-      <p>خدمات کناف کاری | لوله کشی ساختمان | برق کاری ساختمان | نصب کولر گازی</p>
-      <a href="#contact" class="btn">تماس با ما</a>
+<header class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">جواد اورنگ</h1>
+    <p class="hero-sub">خدمات فنی و مهندسی — لوله‌کشی، برق، کناف، نصب کولر گازی</p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="#contact">تماس با ما</a>
+      <a class="btn ghost" href="#cards">نمونه کارها</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- 🔹 ادامه صفحه -->
   <section id="services">
