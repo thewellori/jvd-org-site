@@ -18,3 +18,17 @@ serviceItems.forEach(item => {
         item.style.boxShadow = 'none';
     });
 });
+// sticky navbar: اضافه/حذف کلاس وقتی اسکرول انجام میشه
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// موبایل — باز/بسته کردن منو
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle?.addEventListener('click', () => {
+  menu.classList.toggle('show');
+});
