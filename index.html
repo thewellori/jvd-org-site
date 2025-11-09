@@ -4,38 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>جواد اورنگ | خدمات فنی و مهندسی</title>
-  <link rel="stylesheet" href="style.css">
+    <div id="menu-container"></div>
+  <script>
+    fetch('menu.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('menu-container').innerHTML = html;
+        const script = document.createElement('script');
+        script.src = 'js/menu.js';
+        document.body.appendChild(script);
+      });
+  </script>
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
   <script src="script.js" defer></script>
 </head>
 <body>
- <nav class="navbar">
-  <div class="container">
-    <div class="logo">
-      <a href="./">
-        <img src="./images/Logo.png" alt="لوگو جواد اورنگ">
-      </a>
-      <span class="brand">جواد اورنگ</span>
-    </div>
-
-    <button class="menu-toggle" aria-label="باز کردن منو">☰</button>
-
-    <ul class="menu">
-      <li><a href="#">خانه</a></li>
-      <li class="dropdown"><a href="#">خدمات</a>
-        <ul class="submenu">
-          <li><a href="#services">لوله‌کشی</a></li>
-          <li><a href="#services">برق‌کاری</a></li>
-          <li><a href="#services">کناف‌کاری</a></li>
-          <li><a href="#services">نصب کولر گازی</a></li>
-        </ul>
-      </li>
-      <li><a href="#cards">کارهای ما</a></li>
-      <li><a href="#contact">تماس</a></li>
-      <li class="lang-switch"><button onclick="window.location.href='en/index.html'">EN</button></li>
-    </ul>
-  </div>
-</nav>
 
 <header class="hero">
   <div class="hero-inner">
