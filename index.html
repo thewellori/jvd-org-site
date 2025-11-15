@@ -9,35 +9,39 @@
   <link rel="stylesheet" href="assets/css/navbar.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
-  
-  <!-- JS -->
-  <script>
-    // لود منو ماژولار
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch('components/navbar/navbar.html')
-        .then(res => res.text())
-        .then(html => {
-          document.body.insertAdjacentHTML('afterbegin', html);
-          const script = document.createElement('script');
-          script.src = 'assets/js/navbar.js';
-          document.body.appendChild(script);
-        });
-    });
-  </script>
+
 </head>
 <body>
 
+<!-- 🔹 منوی ماژولار -->
+<div id="menu-container"></div>
+
+<script>
+  fetch('components/navbar/navbar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('menu-container').innerHTML = html;
+
+      // پس از بارگذاری منو، JS منو را لود کن
+      const script = document.createElement('script');
+      script.src = 'assets/js/navbar.js';
+      document.body.appendChild(script);
+    });
+</script>
+
+<!-- 🔹 هدر -->
 <header class="hero">
   <div class="hero-inner">
     <h1 class="hero-title">جواد اورنگ</h1>
     <p class="hero-sub">خدمات فنی و مهندسی — لوله‌کشی، برق، کناف، نصب کولر گازی</p>
     <div class="hero-ctas">
       <a class="btn primary" href="#contact">تماس با ما</a>
-      <a class="btn ghost" href="#portfolio">نمونه کارها</a>
+      <a class="btn ghost" href="#cards">نمونه کارها</a>
     </div>
   </div>
 </header>
 
+<!-- 🔹 ادامه صفحات -->
 <section id="services">
   <h2>خدمات ما</h2>
   <div class="service-list">
@@ -48,8 +52,7 @@
   </div>
 </section>
 
-<section id="portfolio">
-  <h2>نمونه کارها</h2>
+<section id="cards">
   <div class="card">
     <img src="assets/images/knauf.jpg" alt="کناف کاری">
     <div class="card-text">کناف کاری</div>
@@ -77,6 +80,9 @@
 <footer>
   <p>© 2025 جواد اورنگ. همه حقوق محفوظ است.</p>
 </footer>
+
+<!-- JS اصلی سایت -->
+<script src="assets/js/script.js" defer></script>
 
 </body>
 </html>
