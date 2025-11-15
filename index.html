@@ -5,44 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>جواد اورنگ | خدمات فنی و مهندسی</title>
 
-  <!-- CSS ماژولار -->
-  <link rel="stylesheet" href="assets/css/navbar.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- فونت -->
+  <!-- ✅ CSS منو و استایل اصلی -->
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
 
-  <!-- JS اصلی -->
-  <script src="assets/js/script.js" defer></script>
 </head>
 <body>
 
-  <!-- 🔹 Navbar ماژولار -->
-  <div id="navbar-container"></div>
-  <script>
-    fetch('components/navbar/navbar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar-container').innerHTML = html;
-        const script = document.createElement('script');
-        script.src = 'assets/js/navbar.js';
-        document.body.appendChild(script);
-      });
-  </script>
+  <!-- ===========================
+       🔹 Navbar (فول ماژولار)
+  ============================ -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="navbar__inner">
+      <div class="navbar__brand">
+        <a class="navbar__logo-link" href="/" title="خانه">
+          <img class="navbar__logo" src="/assets/images/logo.svg" alt="جواد اورنگ — خدمات فنی">
+        </a>
+      </div>
 
-  <!-- 🔹 Header / Hero -->
+      <button class="navbar__toggle" aria-controls="navbar-list" aria-expanded="false" aria-label="باز کردن منو">
+        <span class="navbar__bar"></span>
+        <span class="navbar__bar"></span>
+        <span class="navbar__bar"></span>
+      </button>
+
+      <ul id="navbar-list" class="navbar__list" role="menubar">
+        <li class="navbar__item" role="none"><a class="navbar__link" href="/" role="menuitem">خانه</a></li>
+        <li class="navbar__item" role="none" data-mega="mega-services">
+          <button class="navbar__link navbar__link--btn" aria-haspopup="true" aria-expanded="false">خدمات</button>
+        </li>
+        <li class="navbar__item" role="none" data-mega="mega-products">
+          <button class="navbar__link navbar__link--btn" aria-haspopup="true" aria-expanded="false">محصولات</button>
+        </li>
+        <li class="navbar__item" role="none"><a class="navbar__link" href="/about.html" role="menuitem">درباره ما</a></li>
+        <li class="navbar__item" role="none"><a class="navbar__link" href="/portfolio.html" role="menuitem">نمونه کارها</a></li>
+        <li class="navbar__item" role="none"><a class="navbar__link" href="/contact.html" role="menuitem">تماس</a></li>
+      </ul>
+
+      <div class="navbar__actions" aria-hidden="false">
+        <a class="navbar__action" href="/search/" aria-label="جستجو">🔍</a>
+        <a class="navbar__action" href="/cart/" aria-label="سبد خرید">🛒</a>
+        <a class="navbar__action" href="/account/" aria-label="حساب">👤</a>
+      </div>
+    </div>
+
+    <div class="navbar__backdrop" data-backdrop aria-hidden="true"></div>
+
+    <!-- 🔹 Mega Menu خدمات -->
+    <div id="mega-services" class="mega" aria-hidden="true" role="region" aria-label="منوی خدمات">
+      <div class="mega__box">
+        <div class="mega__col">
+          <h3 class="mega__title">لوله‌کشی</h3>
+          <ul class="mega__list">
+            <li><a class="mega__link" href="/services/plumbing/">نشتی و تعمیر</a></li>
+            <li><a class="mega__link" href="/services/plumbing/installation/">نصب و تعویض</a></li>
+          </ul>
+        </div>
+
+        <div class="mega__col">
+          <h3 class="mega__title">برق‌کاری</h3>
+          <ul class="mega__list">
+            <li><a class="mega__link" href="/services/electric/">سیم‌کشی و تابلو</a></li>
+            <li><a class="mega__link" href="/services/electric/lighting/">نصب روشنایی</a></li>
+          </ul>
+        </div>
+
+        <div class="mega__col">
+          <h3 class="mega__title">کناف و گچی</h3>
+          <ul class="mega__list">
+            <li><a class="mega__link" href="/services/drywall/">طراحی و اجرا</a></li>
+            <li><a class="mega__link" href="/services/drywall/ceiling/">سقف کاذب</a></li>
+          </ul>
+        </div>
+
+        <div class="mega__col">
+          <h3 class="mega__title">کولر گازی</h3>
+          <ul class="mega__list">
+            <li><a class="mega__link" href="/services/ac/installation/">نصب</a></li>
+            <li><a class="mega__link" href="/services/ac/service/">سرویس و تعمیر</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔹 Mega Menu محصولات -->
+    <div id="mega-products" class="mega" aria-hidden="true" role="region" aria-label="منوی محصولات">
+      <div class="mega__box">
+        <div class="mega__col">
+          <h3 class="mega__title">محصولات</h3>
+          <ul class="mega__list">
+            <li><a class="mega__link" href="/products/item-1/">محصول ۱</a></li>
+            <li><a class="mega__link" href="/products/item-2/">محصول ۲</a></li>
+          </ul>
+        </div>
+        <div class="mega__col">
+          <h3 class="mega__title">محصولات دیگر</h3>
+          <ul class="mega__list">
+            <li><a class="mega__link" href="/products/item-3/">محصول ۳</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===========================
+       🔹 Hero Section
+  ============================ -->
   <header class="hero">
     <div class="hero-inner">
       <h1 class="hero-title">جواد اورنگ</h1>
       <p class="hero-sub">خدمات فنی و مهندسی — لوله‌کشی، برق، کناف، نصب کولر گازی</p>
       <div class="hero-ctas">
         <a class="btn primary" href="#contact">تماس با ما</a>
-        <a class="btn ghost" href="#portfolio">نمونه کارها</a>
+        <a class="btn ghost" href="#cards">نمونه کارها</a>
       </div>
     </div>
   </header>
 
-  <!-- 🔹 خدمات -->
+  <!-- ===========================
+       🔹 خدمات
+  ============================ -->
   <section id="services">
     <h2>خدمات ما</h2>
     <div class="service-list">
@@ -53,40 +136,49 @@
     </div>
   </section>
 
-  <!-- 🔹 نمونه کارها / Portfolio -->
-  <section id="portfolio">
-    <h2>نمونه کارها</h2>
-    <div class="card-list">
-      <div class="card">
-        <img src="assets/images/knauf.jpg" alt="کناف کاری">
-        <div class="card-text">کناف کاری</div>
-      </div>
-      <div class="card">
-        <img src="assets/images/plumbing.jpg" alt="لوله کشی">
-        <div class="card-text">لوله کشی</div>
-      </div>
-      <div class="card">
-        <img src="assets/images/electric.jpg" alt="برق کاری">
-        <div class="card-text">برق کاری</div>
-      </div>
-      <div class="card">
-        <img src="assets/images/ac.jpg" alt="نصب کولر گازی">
-        <div class="card-text">کولر گازی</div>
-      </div>
+  <!-- ===========================
+       🔹 نمونه کارها
+  ============================ -->
+  <section id="cards">
+    <div class="card">
+      <img src="/assets/images/knauf.jpg" alt="کناف کاری">
+      <div class="card-text">کناف کاری</div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/plumbing.jpg" alt="لوله کشی">
+      <div class="card-text">لوله کشی</div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/electric.jpg" alt="برق کاری">
+      <div class="card-text">برق کاری</div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/ac.jpg" alt="نصب کولر گازی">
+      <div class="card-text">کولر گازی</div>
     </div>
   </section>
 
-  <!-- 🔹 تماس با ما -->
+  <!-- ===========================
+       🔹 تماس
+  ============================ -->
   <section id="contact">
     <h2>تماس با ما</h2>
     <p>📞 شماره تماس: 09120000000</p>
     <p>📍 آدرس: تهران، خیابان ایران</p>
   </section>
 
-  <!-- 🔹 Footer -->
+  <!-- ===========================
+       🔹 Footer
+  ============================ -->
   <footer>
     <p>© 2025 جواد اورنگ. همه حقوق محفوظ است.</p>
   </footer>
+
+  <!-- ===========================
+       🔹 JS منو و سایت
+  ============================ -->
+  <script src="/assets/js/navbar.js" defer></script>
+  <script src="/assets/js/script.js" defer></script>
 
 </body>
 </html>
