@@ -4,85 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>جواد اورنگ | خدمات فنی و مهندسی</title>
-  
-  <!-- CSS -->
+
+  <!-- CSS منو و سایت -->
   <link rel="stylesheet" href="assets/css/navbar.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
 
+  <!-- JS اصلی defer -->
+  <script src="assets/js/script.js" defer></script>
 </head>
 <body>
 
-<!-- 🔹 منوی ماژولار -->
-<div id="menu-container"></div>
+  <!-- 🔹 منوی ماژولار -->
+  <div id="menu-container"></div>
+  <script>
+    fetch('components/navbar/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('menu-container').innerHTML = html;
+        const script = document.createElement('script');
+        script.src = 'assets/js/navbar.js';
+        document.body.appendChild(script);
+      });
+  </script>
 
-<script>
-  fetch('components/navbar/navbar.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('menu-container').innerHTML = html;
-
-      // پس از بارگذاری منو، JS منو را لود کن
-      const script = document.createElement('script');
-      script.src = 'assets/js/navbar.js';
-      document.body.appendChild(script);
-    });
-</script>
-
-<!-- 🔹 هدر -->
-<header class="hero">
-  <div class="hero-inner">
-    <h1 class="hero-title">جواد اورنگ</h1>
-    <p class="hero-sub">خدمات فنی و مهندسی — لوله‌کشی، برق، کناف، نصب کولر گازی</p>
-    <div class="hero-ctas">
-      <a class="btn primary" href="#contact">تماس با ما</a>
-      <a class="btn ghost" href="#cards">نمونه کارها</a>
+  <!-- 🔹 هدر -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">جواد اورنگ</h1>
+      <p class="hero-sub">خدمات فنی و مهندسی — لوله‌کشی، برق، کناف، نصب کولر گازی</p>
+      <div class="hero-ctas">
+        <a class="btn primary" href="#contact">تماس با ما</a>
+        <a class="btn ghost" href="#cards">نمونه کارها</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- 🔹 ادامه صفحات -->
-<section id="services">
-  <h2>خدمات ما</h2>
-  <div class="service-list">
-    <div class="service-item">کناف کاری</div>
-    <div class="service-item">لوله کشی</div>
-    <div class="service-item">برق کاری</div>
-    <div class="service-item">نصب کولر گازی</div>
-  </div>
-</section>
+  <!-- 🔹 خدمات -->
+  <section id="services">
+    <h2>خدمات ما</h2>
+    <div class="service-list">
+      <div class="service-item">کناف کاری</div>
+      <div class="service-item">لوله کشی</div>
+      <div class="service-item">برق کاری</div>
+      <div class="service-item">نصب کولر گازی</div>
+    </div>
+  </section>
 
-<section id="cards">
-  <div class="card">
-    <img src="assets/images/knauf.jpg" alt="کناف کاری">
-    <div class="card-text">کناف کاری</div>
-  </div>
-  <div class="card">
-    <img src="assets/images/plumbing.jpg" alt="لوله کشی">
-    <div class="card-text">لوله کشی</div>
-  </div>
-  <div class="card">
-    <img src="assets/images/electric.jpg" alt="برق کاری">
-    <div class="card-text">برق کاری</div>
-  </div>
-  <div class="card">
-    <img src="assets/images/ac.jpg" alt="نصب کولر گازی">
-    <div class="card-text">کولر گازی</div>
-  </div>
-</section>
+  <!-- 🔹 کارت‌ها -->
+  <section id="cards">
+    <div class="card">
+      <img src="assets/images/knauf.jpg" alt="کناف کاری">
+      <div class="card-text">کناف کاری</div>
+    </div>
+    <div class="card">
+      <img src="assets/images/plumbing.jpg" alt="لوله کشی">
+      <div class="card-text">لوله کشی</div>
+    </div>
+    <div class="card">
+      <img src="assets/images/electric.jpg" alt="برق کاری">
+      <div class="card-text">برق کاری</div>
+    </div>
+    <div class="card">
+      <img src="assets/images/ac.jpg" alt="نصب کولر گازی">
+      <div class="card-text">کولر گازی</div>
+    </div>
+  </section>
 
-<section id="contact">
-  <h2>تماس با ما</h2>
-  <p>📞 شماره تماس: 09120000000</p>
-  <p>📍 آدرس: تهران، خیابان ایران</p>
-</section>
+  <!-- 🔹 تماس -->
+  <section id="contact">
+    <h2>تماس با ما</h2>
+    <p>📞 شماره تماس: 09120000000</p>
+    <p>📍 آدرس: تهران، خیابان ایران</p>
+  </section>
 
-<footer>
-  <p>© 2025 جواد اورنگ. همه حقوق محفوظ است.</p>
-</footer>
-
-<!-- JS اصلی سایت -->
-<script src="assets/js/script.js" defer></script>
+  <!-- 🔹 فوتر -->
+  <footer>
+    <p>© 2025 جواد اورنگ. همه حقوق محفوظ است.</p>
+  </footer>
 
 </body>
 </html>

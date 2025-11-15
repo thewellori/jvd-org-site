@@ -1,11 +1,22 @@
+/* ===============================
+   🌙 Apple-style Navbar (Sticky & Glass)
+================================*/
 .apple-navbar {
-  position: sticky;
+  position: fixed; /* برای sticky */
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 2000;
-  background: rgba(0,0,0,1);
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  background: rgba(10,10,10,1); /* شروع مشکی */
+  transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
   font-family: 'Vazir', sans-serif;
+  color: #fff;
+}
+
+.apple-navbar.scrolled {
+  background: rgba(10,10,10,0.75);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
 
 .nav-container {
@@ -20,23 +31,43 @@
   cursor: pointer;
 }
 
+/* 🔸 آیتم‌ها */
 .nav-links {
   display: flex;
   gap: 40px;
   list-style: none;
 }
 
-.nav-item a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
+.nav-item {
+  cursor: pointer;
+  font-size: 0.95rem;
   transition: color 0.3s;
+  position: relative;
 }
 
-.nav-item a:hover {
+/* 🔹 افکت بنفش از راست به چپ */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to left, #ff00ff, #b300ff);
+  transition: width 0.4s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.nav-item:hover {
   color: #b478ff;
 }
 
+/* 🔸 آیکون‌ها */
 .nav-icons {
   display: flex;
   gap: 20px;
@@ -44,12 +75,14 @@
   cursor: pointer;
 }
 
-/* Mega Menu */
+/* ===============================
+   🌈 Mega Menu
+================================*/
 .mega-menu {
   visibility: hidden;
   opacity: 0;
   transform: translateY(10px);
-  transition: all 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   position: absolute;
   top: 100%;
   left: 0;
@@ -59,6 +92,8 @@
   z-index: 1999;
   padding: 30px 60px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  border-radius: 0 0 12px 12px;
+  box-sizing: border-box;
 }
 
 .mega-menu.active {
@@ -72,23 +107,28 @@
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 40px;
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
 .menu-content h4 {
   color: #8b00ff;
+  margin-bottom: 10px;
 }
 
 .menu-content a {
   display: block;
-  margin-bottom: 6px;
   color: #333;
+  text-decoration: none;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
 }
 
 .menu-content a:hover {
   color: #8b00ff;
 }
 
-/* Blur */
+/* 🔹 Blur کل صفحه */
 body.menu-blur::before {
   content: "";
   position: fixed;
@@ -98,37 +138,41 @@ body.menu-blur::before {
   z-index: 900;
 }
 
-/* Scroll effect */
-.scrolled {
-  background: rgba(20,20,20,0.75) !important;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-}
+/* ===============================
+   🔹 Responsive
+================================*/
+@media (max-width: 900px) {
+  .nav-container {
+    padding: 10px 20px;
+  }
 
-/* Responsive */
-@media (max-width:900px){
   .nav-links {
-    display:none;
-    position:absolute;
-    top:60px;
-    right:0;
-    width:100%;
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
     background: rgba(0,0,0,0.95);
+    width: 100%;
     flex-direction: column;
-    gap:20px;
-    padding:20px 0;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
   }
-  .nav-links.show{
-    display:flex;
+
+  .nav-links.show {
+    display: flex;
   }
-  .mega-menu{
+
+  .mega-menu {
     position: static;
-    display:none;
-    box-shadow:none;
-    padding:10px 20px;
+    display: none;
+    box-shadow: none;
+    background: none;
+    padding: 10px 20px;
   }
-  .menu-content{
+
+  .menu-content {
     flex-direction: column;
-    gap:10px;
+    gap: 10px;
   }
 }
