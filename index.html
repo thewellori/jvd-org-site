@@ -4,37 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>جواد اورنگ | خدمات فنی و مهندسی</title>
-    <div id="menu-container"></div>
-  <script>
-    fetch('menu.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('menu-container').innerHTML = html;
-        const script = document.createElement('script');
-        script.src = 'js/menu.js';
-        document.body.appendChild(script);
-      });
-  </script>
-  <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- CSS ماژولار -->
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- فونت -->
   <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
-  <script src="js/script.js" defer></script>
-  
+
+  <!-- JS اصلی -->
+  <script src="assets/js/script.js" defer></script>
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <h1 class="hero-title">جواد اورنگ</h1>
-    <p class="hero-sub">خدمات فنی و مهندسی — لوله‌کشی، برق، کناف، نصب کولر گازی</p>
-    <div class="hero-ctas">
-      <a class="btn primary" href="#contact">تماس با ما</a>
-      <a class="btn ghost" href="#cards">نمونه کارها</a>
-    </div>
-  </div>
-</header>
+  <!-- 🔹 Navbar ماژولار -->
+  <div id="navbar-container"></div>
+  <script>
+    fetch('components/navbar/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+        const script = document.createElement('script');
+        script.src = 'assets/js/navbar.js';
+        document.body.appendChild(script);
+      });
+  </script>
 
-  <!-- 🔹 ادامه صفحه -->
+  <!-- 🔹 Header / Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">جواد اورنگ</h1>
+      <p class="hero-sub">خدمات فنی و مهندسی — لوله‌کشی، برق، کناف، نصب کولر گازی</p>
+      <div class="hero-ctas">
+        <a class="btn primary" href="#contact">تماس با ما</a>
+        <a class="btn ghost" href="#portfolio">نمونه کارها</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 🔹 خدمات -->
   <section id="services">
     <h2>خدمات ما</h2>
     <div class="service-list">
@@ -45,33 +53,40 @@
     </div>
   </section>
 
-  <section id="cards">
-    <div class="card">
-      <img src="images/knauf.jpg" alt="کناف کاری">
-      <div class="card-text">کناف کاری</div>
-    </div>
-    <div class="card">
-      <img src="images/plumbing.jpg" alt="لوله کشی">
-      <div class="card-text">لوله کشی</div>
-    </div>
-    <div class="card">
-      <img src="images/electric.jpg" alt="برق کاری">
-      <div class="card-text">برق کاری</div>
-    </div>
-    <div class="card">
-      <img src="images/ac.jpg" alt="نصب کولر گازی">
-      <div class="card-text">کولر گازی</div>
+  <!-- 🔹 نمونه کارها / Portfolio -->
+  <section id="portfolio">
+    <h2>نمونه کارها</h2>
+    <div class="card-list">
+      <div class="card">
+        <img src="assets/images/knauf.jpg" alt="کناف کاری">
+        <div class="card-text">کناف کاری</div>
+      </div>
+      <div class="card">
+        <img src="assets/images/plumbing.jpg" alt="لوله کشی">
+        <div class="card-text">لوله کشی</div>
+      </div>
+      <div class="card">
+        <img src="assets/images/electric.jpg" alt="برق کاری">
+        <div class="card-text">برق کاری</div>
+      </div>
+      <div class="card">
+        <img src="assets/images/ac.jpg" alt="نصب کولر گازی">
+        <div class="card-text">کولر گازی</div>
+      </div>
     </div>
   </section>
 
+  <!-- 🔹 تماس با ما -->
   <section id="contact">
     <h2>تماس با ما</h2>
     <p>📞 شماره تماس: 09120000000</p>
     <p>📍 آدرس: تهران، خیابان ایران</p>
   </section>
 
+  <!-- 🔹 Footer -->
   <footer>
     <p>© 2025 جواد اورنگ. همه حقوق محفوظ است.</p>
   </footer>
+
 </body>
 </html>
