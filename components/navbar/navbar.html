@@ -1,99 +1,57 @@
-<!-- components/navbar/navbar.html -->
-<nav class="navbar" aria-label="Main Navigation">
-  <div class="navbar__inner">
-    <!-- RIGHT: logo (در RTL راست نمایش داده می‌شود) -->
-    <div class="navbar__brand">
-      <a class="navbar__logo-link" href="/" title="خانه">
-        <img class="navbar__logo" src="/assets/images/logo.svg" alt="جواد اورنگ — خدمات فنی">
-      </a>
+<nav class="apple-navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html"><img src="assets/images/logo.svg" alt="لوگو"></a>
     </div>
 
-    <!-- CENTER: menu -->
-    <button class="navbar__toggle" aria-controls="navbar-list" aria-expanded="false" aria-label="باز کردن منو">
-      <span class="navbar__bar"></span>
-      <span class="navbar__bar"></span>
-      <span class="navbar__bar"></span>
-    </button>
-
-    <ul id="navbar-list" class="navbar__list" role="menubar">
-      <li class="navbar__item" role="none"><a class="navbar__link" href="/" role="menuitem">خانه</a></li>
-
-      <li class="navbar__item" role="none" data-mega="mega-services">
-        <button class="navbar__link navbar__link--btn" aria-haspopup="true" aria-expanded="false">خدمات</button>
-      </li>
-
-      <li class="navbar__item" role="none" data-mega="mega-products">
-        <button class="navbar__link navbar__link--btn" aria-haspopup="true" aria-expanded="false">محصولات</button>
-      </li>
-
-      <li class="navbar__item" role="none"><a class="navbar__link" href="/about/" role="menuitem">درباره ما</a></li>
-      <li class="navbar__item" role="none"><a class="navbar__link" href="/portfolio/" role="menuitem">نمونه کارها</a></li>
-      <li class="navbar__item" role="none"><a class="navbar__link" href="/contact/" role="menuitem">تماس</a></li>
+    <ul class="nav-links">
+      <li class="nav-item" data-menu="products"><a href="products.html">محصولات</a></li>
+      <li class="nav-item" data-menu="services"><a href="services.html">خدمات</a></li>
+      <li class="nav-item" data-menu="about"><a href="about.html">درباره ما</a></li>
+      <li class="nav-item" data-menu="contact"><a href="contact.html">تماس</a></li>
+      <li class="nav-item" data-menu="portfolio"><a href="portfolio.html">نمونه کارها</a></li>
     </ul>
 
-    <!-- LEFT: actions -->
-    <div class="navbar__actions" aria-hidden="false">
-      <a class="navbar__action" href="/search/" aria-label="جستجو">🔍</a>
-      <a class="navbar__action" href="/cart/" aria-label="سبد خرید">🛒</a>
-      <a class="navbar__action" href="/account/" aria-label="حساب">👤</a>
+    <div class="nav-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-shopping-bag"></i>
+      <i class="fas fa-user"></i>
     </div>
   </div>
 
-  <!-- backdrop (برای blur صفحه) -->
-  <div class="navbar__backdrop" data-backdrop aria-hidden="true"></div>
-
-  <!-- MEGA: services (full-width visual, boxed content inside) -->
-  <div id="mega-services" class="mega" aria-hidden="true" role="region" aria-label="منوی خدمات">
-    <div class="mega__box">
-      <div class="mega__col">
-        <h3 class="mega__title">لوله‌کشی</h3>
-        <ul class="mega__list">
-          <li><a class="mega__link" href="/services/plumbing/">نشتی و تعمیر</a></li>
-          <li><a class="mega__link" href="/services/plumbing/installation/">نصب و تعویض</a></li>
-        </ul>
+  <!-- Mega Menus -->
+  <div class="mega-menu" id="products">
+    <div class="menu-content">
+      <div>
+        <h4>گوشی‌ها</h4>
+        <a href="#">iPhone 15</a>
+        <a href="#">iPhone 14</a>
+        <a href="#">iPhone SE</a>
       </div>
-
-      <div class="mega__col">
-        <h3 class="mega__title">برق‌کاری</h3>
-        <ul class="mega__list">
-          <li><a class="mega__link" href="/services/electric/">سیم‌کشی و تابلو</a></li>
-          <li><a class="mega__link" href="/services/electric/lighting/">نصب روشنایی</a></li>
-        </ul>
-      </div>
-
-      <div class="mega__col">
-        <h3 class="mega__title">کناف و گچی</h3>
-        <ul class="mega__list">
-          <li><a class="mega__link" href="/services/drywall/">طراحی و اجرا</a></li>
-          <li><a class="mega__link" href="/services/drywall/ceiling/">سقف کاذب</a></li>
-        </ul>
-      </div>
-
-      <div class="mega__col">
-        <h3 class="mega__title">کولر گازی</h3>
-        <ul class="mega__list">
-          <li><a class="mega__link" href="/services/ac/installation/">نصب</a></li>
-          <li><a class="mega__link" href="/services/ac/service/">سرویس و تعمیر</a></li>
-        </ul>
+      <div>
+        <h4>لپ‌تاپ‌ها</h4>
+        <a href="#">MacBook Air</a>
+        <a href="#">MacBook Pro</a>
       </div>
     </div>
   </div>
 
-  <!-- MEGA: products -->
-  <div id="mega-products" class="mega" aria-hidden="true" role="region" aria-label="منوی محصولات">
-    <div class="mega__box">
-      <div class="mega__col">
-        <h3 class="mega__title">محصولات</h3>
-        <ul class="mega__list">
-          <li><a class="mega__link" href="/products/item-1/">محصول ۱</a></li>
-          <li><a class="mega__link" href="/products/item-2/">محصول ۲</a></li>
-        </ul>
+  <div class="mega-menu" id="services">
+    <div class="menu-content">
+      <div>
+        <h4>برق‌کاری</h4>
+        <a href="#">نصب روشنایی</a>
+        <a href="#">کلید و پریز هوشمند</a>
       </div>
-      <div class="mega__col">
-        <h3 class="mega__title">محصولات دیگر</h3>
-        <ul class="mega__list">
-          <li><a class="mega__link" href="/products/item-3/">محصول ۳</a></li>
-        </ul>
+      <div>
+        <h4>کناف‌کاری</h4>
+        <a href="#">طراحی سقف</a>
+        <a href="#">نورپردازی</a>
+      </div>
+      <div>
+        <h4>کولر گازی</h4>
+        <a href="#">نصب کولر</a>
+        <a href="#">تعمیر و سرویس</a>
       </div>
     </div>
   </div>
