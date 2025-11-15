@@ -104,7 +104,7 @@
   pointer-events:none;
   opacity:0;
   transition: opacity 200ms ease, backdrop-filter 200ms ease;
-  backdrop-filter: blur(0px);
+  backdrop-filter: blur(10px);
 }
 .navbar__backdrop.navbar__backdrop--visible{
   pointer-events:auto;
