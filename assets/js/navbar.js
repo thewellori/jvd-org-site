@@ -1,4 +1,4 @@
-// navbar.js - modular behavior: hover desktop, click mobile, backdrop blur, sticky change
+// assets/js/navbar.js
 document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   const toggle = document.querySelector('.navbar__toggle');
@@ -10,16 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!navbar) return;
 
   let pointerInside = false;
-  const mobileQuery = () => window.matchMedia('(max-width:900px)').matches;
+  const isMobile = () => window.matchMedia('(max-width:900px)').matches;
 
-  /* utility: close all megas */
+  /* close all megas */
   function closeAll() {
     megas.forEach(m => {
       m.classList.remove('mega--visible');
       m.setAttribute('aria-hidden', 'true');
     });
     items.forEach(it => {
-      const btn = it.querySelector('.navbar__link--button');
+      const btn = it.querySelector('.navbar__link--btn');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
     backdrop.classList.remove('navbar__backdrop--visible');
@@ -32,29 +32,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById(id);
     if (!el) return;
     el.classList.add('mega--visible');
-    el.setAttribute('aria-hidden', 'false');
+    el.setAttribute('aria-hidden','false');
     backdrop.classList.add('navbar__backdrop--visible');
     document.body.classList.add('navbar--blur-active');
   }
 
-  /* Hover behavior for desktop (mouseenter/leave on triggers) */
+  /* DESKTOP: hover */
   items.forEach(item => {
-    const megaId = item.dataset.mega;
-    const btn = item.querySelector('.navbar__link--button');
+    const id = item.dataset.mega;
+    const btn = item.querySelector('.navbar__link--btn');
 
-    item.addEventListener('mouseenter', (e) => {
-      if (mobileQuery()) return;
+    item.addEventListener('mouseenter', () => {
+      if (isMobile()) return;
       pointerInside = true;
-      showMega(megaId);
-      if (btn) btn.setAttribute('aria-expanded', 'true');
+      showMega(id);
+      if (btn) btn.setAttribute('aria-expanded','true');
     });
 
-    item.addEventListener('mouseleave', (e) => {
-      if (mobileQuery()) return;
-      // delay to allow pointer to reach mega
+    item.addEventListener('mouseleave', () => {
+      if (isMobile()) return;
+      // delay so pointer can move into mega without closing
       setTimeout(() => {
         if (!pointerInside) closeAll();
-      }, 100);
+      }, 80);
     });
   });
 
@@ -63,47 +63,44 @@ document.addEventListener('DOMContentLoaded', () => {
     m.addEventListener('mouseenter', () => { pointerInside = true; });
     m.addEventListener('mouseleave', () => {
       pointerInside = false;
-      setTimeout(() => { if (!pointerInside) closeAll(); }, 100);
+      setTimeout(() => { if (!pointerInside) closeAll(); }, 80);
     });
   });
 
-  /* Toggle mobile drawer */
+  /* mobile: toggle drawer */
   if (toggle) {
     toggle.addEventListener('click', () => {
-      const isOpen = list.classList.toggle('navbar__list--open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      if (isOpen) {
-        backdrop.classList.add('navbar__backdrop--visible');
-      } else {
+      const open = list.classList.toggle('navbar__list--open');
+      toggle.setAttribute('aria-expanded', String(open));
+      if (open) backdrop.classList.add('navbar__backdrop--visible');
+      else {
         closeAll();
         backdrop.classList.remove('navbar__backdrop--visible');
       }
     });
   }
 
-  /* Mobile: make mega behave like accordion */
+  /* mobile: accordion behavior for mega triggers */
   items.forEach(item => {
-    const btn = item.querySelector('.navbar__link--button');
+    const btn = item.querySelector('.navbar__link--btn');
     const id = item.dataset.mega;
     if (!btn) return;
 
     btn.addEventListener('click', (e) => {
-      if (!mobileQuery()) return; // only mobile accordion
+      if (!isMobile()) return;
       e.preventDefault();
       const target = document.getElementById(id);
-      if (!target) return;
-      const nowVisible = target.classList.toggle('mega--visible');
-      target.setAttribute('aria-hidden', String(!nowVisible));
-      btn.setAttribute('aria-expanded', String(nowVisible));
+      const visible = target.classList.toggle('mega--visible');
+      target.setAttribute('aria-hidden', String(!visible));
+      btn.setAttribute('aria-expanded', String(visible));
 
-      // keep backdrop if any mega open
       const anyOpen = Array.from(megas).some(m => m.classList.contains('mega--visible'));
       if (anyOpen) backdrop.classList.add('navbar__backdrop--visible');
       else backdrop.classList.remove('navbar__backdrop--visible');
     });
   });
 
-  /* backdrop click closes everything (including drawer) */
+  /* backdrop click closes everything */
   if (backdrop) {
     backdrop.addEventListener('click', () => {
       if (list.classList.contains('navbar__list--open')) {
@@ -114,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* keyboard: Enter/Space toggles buttons; Escape closes */
-  document.querySelectorAll('.navbar__link--button').forEach(btn => {
+  /* keyboard: Enter/Space toggle; Escape close */
+  document.querySelectorAll('.navbar__link--btn').forEach(btn => {
     btn.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -134,11 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
     else navbar.classList.remove('navbar--scrolled');
   }
   handleScroll();
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('scroll', handleScroll, { passive:true });
 
-  /* cleanup on resize: close drawer when switching */
+  /* cleanup on resize */
   window.addEventListener('resize', () => {
-    if (!mobileQuery()) {
+    if (!isMobile()) {
       list.classList.remove('navbar__list--open');
       toggle.setAttribute('aria-expanded','false');
     } else {
