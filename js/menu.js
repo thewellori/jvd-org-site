@@ -38,3 +38,4 @@ megaMenus.forEach(menu => {
     menu.classList.add('active');
   });
 });
+ 

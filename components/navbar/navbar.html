@@ -1,0 +1,103 @@
+<!-- components/navbar/navbar.html -->
+<nav class="navbar" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <div class="navbar__brand">
+      <a class="navbar__logo-link" href="/" title="خانه">
+        <img class="navbar__logo" src="/assets/images/logo.svg" alt="نام سایت">
+      </a>
+    </div>
+
+    <button class="navbar__toggle" aria-controls="navbarList" aria-expanded="false" aria-label="باز کردن منو">
+      <span class="navbar__bar"></span>
+      <span class="navbar__bar"></span>
+      <span class="navbar__bar"></span>
+    </button>
+
+    <ul id="navbarList" class="navbar__list" role="menubar">
+      <li class="navbar__item" role="none">
+        <a class="navbar__link" href="/" role="menuitem">خانه</a>
+      </li>
+
+      <li class="navbar__item" role="none" data-mega="mega-services">
+        <button class="navbar__link navbar__link--button" aria-haspopup="true" aria-expanded="false">خدمات</button>
+      </li>
+
+      <li class="navbar__item" role="none" data-mega="mega-products">
+        <button class="navbar__link navbar__link--button" aria-haspopup="true" aria-expanded="false">محصولات</button>
+      </li>
+
+      <li class="navbar__item" role="none">
+        <a class="navbar__link" href="/about/" role="menuitem">درباره ما</a>
+      </li>
+
+      <li class="navbar__item" role="none">
+        <a class="navbar__link" href="/contact/" role="menuitem">تماس</a>
+      </li>
+    </ul>
+
+    <div class="navbar__actions" aria-hidden="false">
+      <a class="navbar__action" href="/search/" aria-label="جستجو">🔍</a>
+      <a class="navbar__action" href="/cart/" aria-label="سبد خرید">🛒</a>
+      <a class="navbar__action" href="/account/" aria-label="حساب">👤</a>
+    </div>
+  </div>
+
+  <!-- Backdrop for blur -->
+  <div class="navbar__backdrop" data-backdrop aria-hidden="true"></div>
+
+  <!-- Mega: services (full-width visual, boxed content inside) -->
+  <div id="mega-services" class="mega" aria-hidden="true" role="region" aria-label="منوی خدمات">
+    <div class="mega__box">
+      <div class="mega__col">
+        <h3 class="mega__title">لوله‌کشی</h3>
+        <ul class="mega__list">
+          <li><a href="/services/plumbing/" class="mega__link">نشتی و تعمیر</a></li>
+          <li><a href="/services/plumbing/installation/" class="mega__link">نصب و تعویض</a></li>
+        </ul>
+      </div>
+
+      <div class="mega__col">
+        <h3 class="mega__title">برق‌کاری</h3>
+        <ul class="mega__list">
+          <li><a href="/services/electric/" class="mega__link">سیم‌کشی و تابلو</a></li>
+          <li><a href="/services/electric/lighting/" class="mega__link">نصب روشنایی</a></li>
+        </ul>
+      </div>
+
+      <div class="mega__col">
+        <h3 class="mega__title">کناف و گچی</h3>
+        <ul class="mega__list">
+          <li><a href="/services/drywall/" class="mega__link">طراحی و اجرا</a></li>
+          <li><a href="/services/drywall/ceiling/" class="mega__link">سقف کاذب</a></li>
+        </ul>
+      </div>
+
+      <div class="mega__col">
+        <h3 class="mega__title">کولر گازی</h3>
+        <ul class="mega__list">
+          <li><a href="/services/ac/installation/" class="mega__link">نصب</a></li>
+          <li><a href="/services/ac/service/" class="mega__link">سرویس و تعمیر</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mega: products -->
+  <div id="mega-products" class="mega" aria-hidden="true" role="region" aria-label="منوی محصولات">
+    <div class="mega__box">
+      <div class="mega__col">
+        <h3 class="mega__title">محصولات نمونه</h3>
+        <ul class="mega__list">
+          <li><a href="/products/item-1/" class="mega__link">محصول ۱</a></li>
+          <li><a href="/products/item-2/" class="mega__link">محصول ۲</a></li>
+        </ul>
+      </div>
+      <div class="mega__col">
+        <h3 class="mega__title">دیگر محصولات</h3>
+        <ul class="mega__list">
+          <li><a href="/products/item-3/" class="mega__link">محصول ۳</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
