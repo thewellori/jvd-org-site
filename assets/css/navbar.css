@@ -176,3 +176,43 @@ body.menu-blur::before {
     gap: 10px;
   }
 }
+/* حالت اولیه منو */
+nav ul li {
+  position: relative;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+/* خط زیر منو (Apple Style) */
+nav ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--led1), var(--led2), var(--led3));
+  border-radius: 10px;
+  transform: translateX(-50%);
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+}
+
+/* هنگام Hover */
+nav ul li:hover::after {
+  width: 90%;
+  opacity: 1;
+}
+
+/* انیمیشن پویا شدن گرادیانت LED */
+@keyframes ledFlow {
+  0% { background-position: 0 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+nav ul li:hover::after {
+  animation: ledFlow 2.8s linear infinite;
+  background-size: 300% 300%;
+}

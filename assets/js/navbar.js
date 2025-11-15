@@ -1,51 +1,99 @@
 const nav = document.querySelector('.apple-navbar');
+const navContainer = document.querySelector('.nav-container');
 const items = document.querySelectorAll('.nav-item');
 const megaMenus = document.querySelectorAll('.mega-menu');
 
-// 🔹 hover دسکتاپ / click موبایل
+let activeMenu = null;
+
+// -------------------------------
+// 🟣 Hover Desktop Logic
+// -------------------------------
 items.forEach(item => {
   const id = item.dataset.menu;
   const target = document.getElementById(id);
 
-  // دسکتاپ
   item.addEventListener('mouseenter', () => {
     document.body.classList.add('menu-blur');
+
+    // سوییچ بین مگامنوها بدون خاموش کردن blur
     megaMenus.forEach(m => m.classList.remove('active'));
-    if (target) target.classList.add('active');
-  });
-
-  item.addEventListener('mouseleave', () => {
-    setTimeout(() => {
-      if (!document.querySelector('.mega-menu:hover')) {
-        document.body.classList.remove('menu-blur');
-        megaMenus.forEach(m => m.classList.remove('active'));
-      }
-    }, 50);
-  });
-
-  // موبایل
-  item.addEventListener('click', () => {
-    if (target) target.classList.toggle('active');
+    if (target) {
+      target.classList.add('active');
+      activeMenu = target;
+    }
   });
 });
 
-// mega menu hover
+// 🟣 نگه داشتن blur تا وقتی موس داخل navbar یا مگا منو باشد
+nav.addEventListener('mouseleave', () => {
+  // اگر وارد mega menu نشود blur خاموش می‌شود
+  setTimeout(() => {
+    if (!document.querySelector('.mega-menu:hover') &&
+        !document.querySelector('.apple-navbar:hover')) {
+      document.body.classList.remove('menu-blur');
+      megaMenus.forEach(m => m.classList.remove('active'));
+      activeMenu = null;
+    }
+  }, 80);
+});
+
+// -------------------------------
+// 🟣 Mega Menu Hover Behavior
+// -------------------------------
 megaMenus.forEach(menu => {
   menu.addEventListener('mouseenter', () => {
     document.body.classList.add('menu-blur');
     menu.classList.add('active');
   });
+
   menu.addEventListener('mouseleave', () => {
-    document.body.classList.remove('menu-blur');
-    menu.classList.remove('active');
+    setTimeout(() => {
+      if (!document.querySelector('.apple-navbar:hover')) {
+        document.body.classList.remove('menu-blur');
+        megaMenus.forEach(m => m.classList.remove('active'));
+        activeMenu = null;
+      }
+    }, 80);
   });
 });
 
-// 🔹 sticky + شیشه‌ای شدن بعد اسکرول
+// -------------------------------
+// 🟣 Scroll — شیشه‌ای شدن navbar
+// -------------------------------
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
+  if (window.scrollY > 50) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
 });
+
+/* گرفتن رنگ‌های LED از سکشن فعال */
+const sections = document.querySelectorAll("section");
+const menu = document.querySelector("nav");
+
+const setDynamicLED = (colors) => {
+  document.documentElement.style.setProperty("--led1", colors[0]);
+  document.documentElement.style.setProperty("--led2", colors[1]);
+  document.documentElement.style.setProperty("--led3", colors[2]);
+};
+
+const colorThemes = {
+  home:      ["#00eaff", "#0077ff", "#00ffaa"],
+  services:  ["#ff6bcb", "#b400ff", "#ff00aa"],
+  about:     ["#ffaa00", "#ff5500", "#ff8800"],
+  contact:   ["#33ffcc", "#009977", "#00ffaa"]
+};
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        if (colorThemes[id]) {
+          setDynamicLED(colorThemes[id]);
+        }
+      }
+    });
+  },
+  { threshold: 0.4 }
+);
+
+sections.forEach(sec => observer.observe(sec));
