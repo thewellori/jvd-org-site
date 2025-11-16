@@ -97,3 +97,8 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach(sec => observer.observe(sec));
+:root {
+  --led1: #ff00aa;
+  --led2: #7700ff;
+  --led3: #00eaff;
+}
