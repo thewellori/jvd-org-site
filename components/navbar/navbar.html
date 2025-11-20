@@ -1,112 +1,26 @@
-<!-- components/navbar/navbar.html -->
-<!--
-  Navbar component (RTL / Persian)
-  - قرار دهید در /components/navbar/navbar.html
-  - این فایل در صفحات با navbar.js بارگذاری می‌شود.
--->
-<nav id="jvd-navbar" class="jvd-navbar" dir="rtl" aria-label="ناوبری سایت">
-  <div class="jvd-navbar__inner container">
-    <!-- لوگو / برند -->
-    <a href="/index.html" class="jvd-navbar__brand" aria-label="خانه">
-      <img src="/assets/images/logo.svg" alt="لوگو" width="36" height="36">
-    </a>
+<nav class="navbar">
+    <div class="nav-container">
 
-    <!-- دکمه همبرگری (موبایل) -->
-    <button id="jvd-hamburger" class="jvd-navbar__hamburger" aria-expanded="false" aria-controls="jvd-drawer">
-      <span class="sr-only">باز/بستن منو</span>
-      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
-
-    <!-- آیتم‌ها (برای دسکتاپ نمایش افقی؛ موبایل در دراور) -->
-    <ul class="jvd-navbar__list" role="menubar">
-      <li class="jvd-navbar__item" role="none">
-        <a href="/index.html" class="jvd-navbar__link" role="menuitem">خانه
-          <span class="led" aria-hidden="true"><span class="led__bar"></span></span>
-        </a>
-      </li>
-
-      <li class="jvd-navbar__item has-mega" role="none" data-mega="services">
-        <a href="/services.html" class="jvd-navbar__link" role="menuitem" aria-haspopup="true" aria-expanded="false">
-          خدمات
-          <span class="led" aria-hidden="true"><span class="led__bar"></span></span>
-        </a>
-        <!-- مگامنوی خدمات -->
-        <div class="jvd-megamenu" id="mega-services" aria-hidden="true">
-          <div class="jvd-megamenu__grid container">
-            <div class="col">
-              <h4>لوله کشی</h4>
-              <ul>
-                <li><a href="/services/plumbing/repair.html">تعمیر لوله</a></li>
-                <li><a href="/services/plumbing/installation.html">نصب</a></li>
-              </ul>
-            </div>
-            <div class="col">
-              <h4>برق کاری</h4>
-              <ul>
-                <li><a href="/services/electric/wiring.html">سیم‌کشی</a></li>
-                <li><a href="/services/electric/lighting.html">روشنایی</a></li>
-              </ul>
-            </div>
-            <div class="col">
-              <h4>کناف کاری</h4>
-              <ul>
-                <li><a href="/services/drywall/frames.html">قاب‌کشی</a></li>
-                <li><a href="/services/drywall/finish.html">پایان‌کاری</a></li>
-              </ul>
-            </div>
-            <div class="col">
-              <h4>گولر گازی</h4>
-              <ul>
-                <li><a href="/services/ac/repair.html">رفع اشکال</a></li>
-                <li><a href="/services/ac/installation.html">نصب</a></li>
-              </ul>
-            </div>
-          </div>
+        <!-- لوگو   -->
+        <div class="nav-logo">
+            <img src="/assets/images/logo.png" alt="لوگو سایت">
         </div>
-      </li>
 
-      <li class="jvd-navbar__item" role="none">
-        <a href="/portfolio.html" class="jvd-navbar__link" role="menuitem">کارهای ما
-          <span class="led" aria-hidden="true"><span class="led__bar"></span></span>
-        </a>
-      </li>
+        <!--  منو   -->
+        <ul class="nav-menu">
+            <li><a href="/index.html">خانه</a></li>
+            <li><a href="/services.html">خدمات</a></li>
+            <li><a href="/portfolio.html">کارهای ما</a></li>
+            <li><a href="/about.html">درباره ما</a></li>
+            <li><a href="/contact.html">تماس با ما</a></li>
+            <li><a href="/language.html">En</a></li>
+        </ul>
 
-      <li class="jvd-navbar__item" role="none">
-        <a href="/about.html" class="jvd-navbar__link" role="menuitem">درباره ما
-          <span class="led" aria-hidden="true"><span class="led__bar"></span></span>
-        </a>
-      </li>
+        <!-- آیکون‌ها   -->
+        <div class="nav-icons">
+            <a href="/cart.html" class="icon">🛒</a>
+            <a href="/account.html" class="icon">👤</a>
+        </div>
 
-      <li class="jvd-navbar__item" role="none">
-        <a href="/contact.html" class="jvd-navbar__link" role="menuitem">تماس با ما
-          <span class="led" aria-hidden="true"><span class="led__bar"></span></span>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- دراور موبایل -->
-  <div id="jvd-drawer" class="jvd-drawer" aria-hidden="true">
-    <div class="jvd-drawer__inner">
-      <ul class="jvd-drawer__list">
-        <!-- برای موبایل، زیرمنوها با کلیک باز می‌شوند -->
-        <li><a href="/index.html">خانه</a></li>
-        <li class="drawer-has-children">
-          <button class="drawer-toggle">خدمات</button>
-          <ul class="drawer-submenu">
-            <li><a href="/services/plumbing/repair.html">لوله کشی</a></li>
-            <li><a href="/services/electric/wiring.html">برق کاری</a></li>
-            <li><a href="/services/drywall/frames.html">کناف کاری</a></li>
-            <li><a href="/services/ac/repair.html">گولر گازی</a></li>
-          </ul>
-        </li>
-        <li><a href="/portfolio.html">کارهای ما</a></li>
-        <li><a href="/about.html">درباره ما</a></li>
-        <li><a href="/contact.html">تماس با ما</a></li>
-      </ul>
     </div>
-  </div>
-
-  <!-- overlay تارکننده/بلِر هنگام باز بودن مگا منو -->
-  <div id="jvd-overlay" class="jvd-overlay" aria-hidden="true"></div>
 </nav>

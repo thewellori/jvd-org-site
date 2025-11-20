@@ -5,27 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>جواد اورنگ | خدمات فنی و مهندسی</title>
 
-  <!-- CSS منو و سایت -->
+  <!-- منو  -->
+
   <link rel="stylesheet" href="assets/css/navbar.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
 
   <!-- JS اصلی defer -->
   <script src="assets/js/script.js" defer></script>
 </head>
 <body>
 
-  <!-- 🔹 منوی ماژولار -->
-  <div id="menu-container"></div>
+  <!-- بارگذاری منو -->
+
+  <div id="navbar-placeholder"></div>
+
   <script>
-    fetch('components/navbar/navbar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('menu-container').innerHTML = html;
-        const script = document.createElement('script');
-        script.src = 'assets/js/navbar.js';
-        document.body.appendChild(script);
-      });
+    fetch("/components/navbar/navbar.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
   </script>
 
   <!-- 🔹 هدر -->
@@ -82,6 +78,9 @@
   <footer>
     <p>© 2025 جواد اورنگ. همه حقوق محفوظ است.</p>
   </footer>
+
+<script src="/assets/js/navbar.js"></script>
+
 
 </body>
 </html>
