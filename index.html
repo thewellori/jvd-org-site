@@ -6,11 +6,8 @@
   <title>جواد اورنگ | خدمات فنی و مهندسی</title>
 
   <!-- منو  -->
-
   <link rel="stylesheet" href="assets/css/navbar.css">
 
-  <!-- JS اصلی defer -->
-  <script src="assets/js/script.js" defer></script>
 </head>
 <body>
 
@@ -19,7 +16,7 @@
   <div id="navbar-placeholder"></div>
 
   <script>
-    fetch("/components/navbar/navbar.html")
+    fetch("https://username.github.io/thewellori/jvd-org-site/components/navbar/navbar.html")
         .then(res => res.text())
         .then(data => document.getElementById("navbar-placeholder").innerHTML = data);
   </script>
